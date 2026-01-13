@@ -14,11 +14,26 @@ public class Main {
         menu_principale.show();
         int selected = menu_principale.select();
 
+        // https://wiki.pokemoncentral.it/Professor_Oak#Citazioni
         Text.clear();
-        
-        Text.println("Come ti chiami?", "yellow", "black");
+        Text.printWithDelay(Characters.oak[0], 15);
+        String gender = scanner.nextLine();
+
+        Text.clear();
+        Text.printWithDelay(Characters.oak[1], 15);
         String name = scanner.nextLine();
 
-        Text.println("Benvenut_, " + name + "!", "green", "black");
+        Text.clear();
+        Text.printWithDelay(
+            Characters.oak[2].replace("<giocatore>", name),
+            15
+        );
+        String rivalName = scanner.nextLine();
+
+        Text.clear();
+        Text.printWithDelay(
+            Characters.oak[3].replace("<giocatore>", name).replace("<rivale>", rivalName),
+            15
+        );
     }
 }

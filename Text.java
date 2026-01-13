@@ -27,8 +27,7 @@ public class Text {
             "cyan"   , "\u001B[46m",
             "white"  , "\u001B[47m"
         ));
-
-
+    
     public static int print(String text) {
         return print(text, "white", "black");
     }
@@ -42,7 +41,7 @@ public class Text {
         System.out.println();
         return length;
     }
-
+    
     public static int print(
         String text,
         String color,
@@ -59,6 +58,19 @@ public class Text {
         );
 
         return text.length();
+    }
+
+    public static void printWithDelay(String text, int delay) {
+        for(char c : text.toCharArray()) {
+            System.out.print(c);
+
+            // pausa di riflessione
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void clear() {
