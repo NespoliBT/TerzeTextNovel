@@ -1,18 +1,24 @@
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         String[] entries = {
-            "Start",
-            "Options",
-            "Exit"
+            "Inizia",
+            "Opzioni",
+            "Esci"
         };
 
-        Menu menu_principale = new Menu(entries);
-        Menu menu_centrato = new MenuCentrato(entries);
+        MenuCentrato menu_principale = new MenuCentrato(entries, "Text Novel 9000");
 
         menu_principale.show();
         int selected = menu_principale.select();
 
-        menu_centrato.show();
-        selected = menu_centrato.select();
+        Text.clear();
+        
+        Text.println("Come ti chiami?", "yellow", "black");
+        String name = scanner.nextLine();
+
+        Text.println("Benvenut_, " + name + "!", "green", "black");
     }
 }

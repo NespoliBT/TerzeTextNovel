@@ -1,10 +1,11 @@
 public class MenuCentrato extends Menu {
-    MenuCentrato(String[] entries) {
-        super(entries);   
+    MenuCentrato(String[] entries, String title) {
+        super(entries, title);   
     }
 
     public void show() {
-        int maxLength = this.entries[0].length();
+        int titleLength = Text.print("\n ~ " + title + " ~ \n", "black", "cyan");
+        int maxLength = Math.max(this.entries[0].length(), titleLength);
 
         for(int i = 0; i < entries.length; i++) {
             String entry = entries[i];
@@ -17,9 +18,9 @@ public class MenuCentrato extends Menu {
             String entry = entries[i];
             int entryLength = entry.length();
             int spacing = (maxLength-entryLength)/2;
-
             System.out.print((i + 1) + " - ");
-            for(int j = 0; j < spacing; j++) {
+
+            for(int j = 0; j < spacing - 4; j++) {
                 System.out.print(" ");
             }
             System.out.println(entry);
